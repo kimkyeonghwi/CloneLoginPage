@@ -1,6 +1,7 @@
 import React , { useState} from 'react';
 import {View , StyleSheet , TextInput , Button , Text, Alert , TouchableOpacity} from 'react-native';
-import { styled } from 'styled-components';
+import { styled } from 'styled-components/native';
+
 
 
 const InputBox = styled(TextInput)`
@@ -8,13 +9,17 @@ const InputBox = styled(TextInput)`
   border-Width: 0.2px;
   border-Radius: 9px;
   padding: 15px;
-  font-Size: 18px;
+  font-Size: 17px;
 `
-const LoginButton = styled(Button)`
-`
+
 const Container = styled.View`
   margin:10px;
 `;
+
+const MidContainer = styled.View`
+  margin-top: 8px;
+  padding: 10px;
+`
 
 const BottomContainer = styled.View`
   margin:10px;
@@ -25,6 +30,8 @@ const BottomContainer = styled.View`
 
 const BottomContainerText = styled.Text`
   font-size:14px;
+  color: #64748B;
+  margin-left:10px;
 `
 
 const LoginPage = () => {
@@ -33,9 +40,9 @@ const LoginPage = () => {
 
   // const [password , setPassword] = useState('');
   
-  const PhoneNumber = (Phone:string) => {
-    const Number = Phone.replace(/^(\d{3})(\d{4})(\d{4})/, `$1-$2-$3`);
-    setNumber(Number);
+  const phoneNumber = (phone:string) => {
+    const number = phone.replace(/^(\d{3})(\d{4})(\d{4})/, `$1-$2-$3`);
+    setNumber(number);
   }
 
   
@@ -45,7 +52,7 @@ const LoginPage = () => {
       <Container>
           <InputBox
             maxLength={13}
-            onChangeText={PhoneNumber}
+            onChangeText={phoneNumber}
             value={number}
             keyboardType={'number-pad'}
           />
@@ -54,16 +61,18 @@ const LoginPage = () => {
               // onChangeText={(value) => setPassword(value)}
               secureTextEntry={true}
             />
-          <View>
-            <LoginButton title='로그인' color='black'/>
-          </View>
+          <MidContainer>
+            <TouchableOpacity style={styles.Button}>
+              <Text style={styles.Text}>로그인</Text>  
+            </TouchableOpacity>            
+          </MidContainer>
           <BottomContainer>
             <TouchableOpacity>
-              <BottomContainerText>비밀번호 찾기 </BottomContainerText>
+              <BottomContainerText>비밀번호 찾기</BottomContainerText>
             </TouchableOpacity>
               <BottomContainerText>|</BottomContainerText>
             <TouchableOpacity>
-              <BottomContainerText> 회원가입</BottomContainerText>
+              <BottomContainerText>회원가입</BottomContainerText>
             </TouchableOpacity>
           </BottomContainer>
         </Container>      
@@ -71,6 +80,22 @@ const LoginPage = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  Text: {
+    fontSize:18,
+    lineHeight: 24,
+    color:'#FFFFFF',
+  },
+  Button: {
+    width:355,
+    height:56,
+    backgroundColor: '#DEE2E7',
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+  }
+
+})
 
 
 export default LoginPage;

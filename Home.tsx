@@ -5,7 +5,7 @@ const Home = ({navigation}) => {
     return (
         <View>
             <Button title="클릭"
-            onPress={()=> navigation.navigate('로그인')}/>
+            onPress={()=> navigation.navigate('Login')}/>
         </View>
     );
 }

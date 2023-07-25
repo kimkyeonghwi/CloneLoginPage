@@ -2,8 +2,6 @@ import React , { useState} from 'react';
 import {View , StyleSheet , TextInput , Button , Text, Alert , TouchableOpacity} from 'react-native';
 import { styled } from 'styled-components/native';
 
-
-
 const InputBox = styled(TextInput)`
   margin: 10px;
   border-Width: 0.2px;
@@ -19,6 +17,20 @@ const Container = styled.View`
 const MidContainer = styled.View`
   margin-top: 8px;
   padding: 10px;
+`
+
+const LoginButton = styled(TouchableOpacity)`
+  width:355px;
+  height:56px;
+  background-Color: #DEE2E7;
+  justify-Content: center;
+  align-Items: center;
+  border-Radius: 8px;
+` 
+const ButtonText = styled.Text`
+  font-Size:18px;
+  line-Height: 24px;
+  color:#FFFFFF;
 `
 
 const BottomContainer = styled.View`
@@ -62,9 +74,12 @@ const LoginPage = () => {
               secureTextEntry={true}
             />
           <MidContainer>
-            <TouchableOpacity style={styles.Button}>
+            <LoginButton activeOpacity={0.4}>
+              <ButtonText>로그인</ButtonText>
+            </LoginButton>
+            {/* <TouchableOpacity style={styles.Button}>
               <Text style={styles.Text}>로그인</Text>  
-            </TouchableOpacity>            
+            </TouchableOpacity>             */}
           </MidContainer>
           <BottomContainer>
             <TouchableOpacity>

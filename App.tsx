@@ -10,7 +10,8 @@ const App = () => {
   return <NavigationContainer>
     <Stack.Navigator initialRouteName="">
       <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
-      <Stack.Screen name="Login" component={LoginPage} options={{headerShadowVisible: false , headerTintColor: 'black'} } />
+      <Stack.Screen name="Login" component={LoginPage} options={{headerShadowVisible: false 
+        , headerTintColor: 'black', title:'로그인'} } />
     </Stack.Navigator>
   </NavigationContainer>
 }
